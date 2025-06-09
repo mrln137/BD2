@@ -1,0 +1,243 @@
+[{
+  "_id": {
+    "$oid": "6846500ecce8a1d44872b8a0"
+  },
+  "operador": "$and",
+  "tipo": "lógico",
+  "descripcion": "Evalúa si todas las expresiones en el array son verdaderas.",
+  "sintaxis": "{ $and: [ <exp1>, <exp2> ] }"
+},
+{
+  "_id": {
+    "$oid": "6846500ecce8a1d44872b8a1"
+  },
+  "operador": "$or",
+  "tipo": "lógico",
+  "descripcion": "Evalúa si al menos una de las expresiones es verdadera.",
+  "sintaxis": "{ $or: [ <exp1>, <exp2> ] }"
+},
+{
+  "_id": {
+    "$oid": "6846500ecce8a1d44872b8a2"
+  },
+  "operador": "$not",
+  "tipo": "lógico",
+  "descripcion": "Invierte la expresión que se le pasa.",
+  "sintaxis": "{ <campo>: { $not: <expresión relacional> } }"
+},
+{
+  "_id": {
+    "$oid": "6846500ecce8a1d44872b8a3"
+  },
+  "operador": "$nor",
+  "tipo": "lógico",
+  "descripcion": "Evalúa si ninguna de las condiciones es verdadera.",
+  "sintaxis": "{ $nor: [ <exp1>, <exp2> ] }"
+},
+{
+  "_id": {
+    "$oid": "6846500ecce8a1d44872b8a4"
+  },
+  "operador": "$eq",
+  "tipo": "relacional",
+  "descripcion": "Compara si el valor es igual al especificado.",
+  "sintaxis": "{ <campo>: { $eq: <valor> } }"
+},
+{
+  "_id": {
+    "$oid": "6846500ecce8a1d44872b8a5"
+  },
+  "operador": "$ne",
+  "tipo": "relacional",
+  "descripcion": "Compara si el valor es distinto al especificado.",
+  "sintaxis": "{ <campo>: { $ne: <valor> } }"
+},
+{
+  "_id": {
+    "$oid": "6846500ecce8a1d44872b8a6"
+  },
+  "operador": "$gt",
+  "tipo": "relacional",
+  "descripcion": "Evalúa si el valor es mayor que el especificado.",
+  "sintaxis": "{ <campo>: { $gt: <valor> } }"
+},
+{
+  "_id": {
+    "$oid": "6846500ecce8a1d44872b8a7"
+  },
+  "operador": "$gte",
+  "tipo": "relacional",
+  "descripcion": "Evalúa si el valor es mayor o igual que el especificado.",
+  "sintaxis": "{ <campo>: { $gte: <valor> } }"
+},
+{
+  "_id": {
+    "$oid": "6846500ecce8a1d44872b8a8"
+  },
+  "operador": "$lt",
+  "tipo": "relacional",
+  "descripcion": "Evalúa si el valor es menor que el especificado.",
+  "sintaxis": "{ <campo>: { $lt: <valor> } }"
+},
+{
+  "_id": {
+    "$oid": "6846500ecce8a1d44872b8a9"
+  },
+  "operador": "$lte",
+  "tipo": "relacional",
+  "descripcion": "Evalúa si el valor es menor o igual que el especificado.",
+  "sintaxis": "{ <campo>: { $lte: <valor> } }"
+},
+{
+  "_id": {
+    "$oid": "684742f7fef2d4fbf8c67525"
+  },
+  "nombre": "and_eq_ne",
+  "tipo": "combinado",
+  "descripcion": "Combina $and con $eq y $ne para filtrar igualdad y desigualdad juntas.",
+  "ejemplo": "{ $and: [ { categoria: { $eq: \"A\" } }, { estado: { $ne: \"inactivo\" } } ] }"
+},
+{
+  "_id": {
+    "$oid": "684742f7fef2d4fbf8c67526"
+  },
+  "nombre": "or_gte_lte",
+  "tipo": "combinado",
+  "descripcion": "Combina $or con $gte y $lte para aceptar rangos amplios o específicos.",
+  "ejemplo": "{ $or: [ { edad: { $gte: 60 } }, { edad: { $lte: 18 } } ] }"
+},
+{
+  "_id": {
+    "$oid": "684742f7fef2d4fbf8c67527"
+  },
+  "nombre": "not_eq",
+  "tipo": "combinado",
+  "descripcion": "Usa $not con $eq para excluir un valor específico.",
+  "ejemplo": "{ estado: { $not: { $eq: \"pendiente\" } } }"
+},
+{
+  "_id": {
+    "$oid": "684742f7fef2d4fbf8c67528"
+  },
+  "nombre": "nor_ne_gt",
+  "tipo": "combinado",
+  "descripcion": "Combina $nor con $ne y $gt para excluir documentos por desigualdad o límite superior.",
+  "ejemplo": "{ $nor: [ { categoria: { $ne: \"premium\" } }, { precio: { $gt: 500 } } ] }"
+},
+{
+  "_id": {
+    "$oid": "684742f7fef2d4fbf8c67529"
+  },
+  "nombre": "and_or_ne_lt",
+  "tipo": "combinado",
+  "descripcion": "Combina $and con $or, $ne y $lt para casos donde se necesitan múltiples filtros complejos.",
+  "ejemplo": "{ $and: [ { cantidad: { $gt: 10 } }, { $or: [ { estado: { $ne: \"cancelado\" } }, { descuento: { $lt: 20 } } ] } ] }"
+},
+{
+  "_id": {
+    "$oid": "684742f7fef2d4fbf8c6752a"
+  },
+  "nombre": "or_not_gte",
+  "tipo": "combinado",
+  "descripcion": "Usa $or con $not y $gte para combinar negaciones con alternativas.",
+  "ejemplo": "{ $or: [ { edad: { $not: { $gte: 50 } } }, { tipo: { $eq: \"visitante\" } } ] }"
+},
+{
+  "_id": {
+    "$oid": "684742f7fef2d4fbf8c6752b"
+  },
+  "nombre": "and_gt_ne_lte",
+  "tipo": "combinado",
+  "descripcion": "Combinación compleja con $and, $gt, $ne y $lte para filtrar por rangos, desigualdad e igualdad.",
+  "ejemplo": "{ $and: [ { visitas: { $gt: 100 } }, { estado: { $ne: \"borrador\" } }, { precio: { $lte: 1000 } } ] }"
+},
+{
+  "_id": {
+    "$oid": "684742f7fef2d4fbf8c6752c"
+  },
+  "nombre": "nor_and_eq_gte",
+  "tipo": "combinado",
+  "descripcion": "Anida $and dentro de $nor para excluir documentos que cumplan múltiples condiciones.",
+  "ejemplo": "{ $nor: [ { $and: [ { tipo: { $eq: \"interno\" } }, { prioridad: { $gte: 3 } } ] } ] }"
+},
+{
+  "_id": {
+    "$oid": "684742f7fef2d4fbf8c6752d"
+  },
+  "nombre": "and_or_eq_ne",
+  "tipo": "combinado",
+  "descripcion": "Anida $or dentro de $and combinando $eq y $ne para lógica avanzada.",
+  "ejemplo": "{ $and: [ { activo: true }, { $or: [ { tipo: { $eq: \"premium\" } }, { estado: { $ne: \"archivado\" } } ] } ] }"
+},
+{
+  "_id": {
+    "$oid": "684742f7fef2d4fbf8c6752e"
+  },
+  "nombre": "or_and_gt_lt",
+  "tipo": "combinado",
+  "descripcion": "Usa $or con un $and anidado para combinar lógica compuesta.",
+  "ejemplo": "{ $or: [ { precio: { $eq: 0 } }, { $and: [ { cantidad: { $gt: 5 } }, { cantidad: { $lt: 20 } } ] } ] }"
+},
+{
+  "_id": {
+    "$oid": "6847432afef2d4fbf8c6752f"
+  },
+  "nombre": "and_gt_eq",
+  "tipo": "combinado",
+  "descripcion": "Combina $and con $gt y $eq para verificar múltiples condiciones.",
+  "ejemplo": "{ $and: [ { edad: { $gt: 25 } }, { estado: { $eq: \"activo\" } } ] }"
+},
+{
+  "_id": {
+    "$oid": "6847432afef2d4fbf8c67530"
+  },
+  "nombre": "or_lt_ne",
+  "tipo": "combinado",
+  "descripcion": "Combina $or con $lt y $ne para aceptar una de varias condiciones.",
+  "ejemplo": "{ $or: [ { puntuacion: { $lt: 50 } }, { estado: { $ne: \"suspendido\" } } ] }"
+},
+{
+  "_id": {
+    "$oid": "6847432afef2d4fbf8c67531"
+  },
+  "nombre": "not_gte",
+  "tipo": "combinado",
+  "descripcion": "Usa $not con $gte para excluir valores mayores o iguales a cierto umbral.",
+  "ejemplo": "{ edad: { $not: { $gte: 18 } } }"
+},
+{
+  "_id": {
+    "$oid": "6847432afef2d4fbf8c67532"
+  },
+  "nombre": "and_gte_lte",
+  "tipo": "combinado",
+  "descripcion": "Usa $and con $gte y $lte para definir un rango de valores.",
+  "ejemplo": "{ $and: [ { edad: { $gte: 18 } }, { edad: { $lte: 30 } } ] }"
+},
+{
+  "_id": {
+    "$oid": "6847432afef2d4fbf8c67533"
+  },
+  "nombre": "or_eq_eq",
+  "tipo": "combinado",
+  "descripcion": "Utiliza $or con $eq para verificar igualdad contra múltiples valores.",
+  "ejemplo": "{ $or: [ { rol: { $eq: \"admin\" } }, { rol: { $eq: \"supervisor\" } } ] }"
+},
+{
+  "_id": {
+    "$oid": "6847432afef2d4fbf8c67534"
+  },
+  "nombre": "nor_eq_lt",
+  "tipo": "combinado",
+  "descripcion": "Combina $nor con $eq y $lt para excluir múltiples condiciones.",
+  "ejemplo": "{ $nor: [ { estado: { $eq: \"activo\" } }, { puntuacion: { $lt: 70 } } ] }"
+},
+{
+  "_id": {
+    "$oid": "6847432afef2d4fbf8c67535"
+  },
+  "nombre": "and_or_eq_gt",
+  "tipo": "combinado",
+  "descripcion": "Combina $and con $or, $eq y $gt para condiciones complejas con jerarquía.",
+  "ejemplo": "{ $and: [ { edad: { $gt: 20 } }, { $or: [ { estado: { $eq: \"activo\" } }, { estado: { $eq: \"pendiente\" } } ] } ] }"
+}]
